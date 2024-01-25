@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         // 'konkhmer-sleokchher': ['Konkhmer Sleokchher', 'sans-serif'],
-        abc: ['Konkhmer Sleokchher', "system-ui"]
+        abc: ['Konkhmer Sleokchher', "system-ui"],
+        dbc: ['Noto Sans Khmer', 'sans-serif']
       },
     },
   },

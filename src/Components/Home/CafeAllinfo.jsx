@@ -1,44 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
+function CafeAllinfo() {
 
-function Allinfo() {
-  const [allImages, setAllImages] = useState([]);
-  const navigate = useNavigate();
+  const [allImagesCafe, setAllImagesCafe] = useState([]);
 
   useEffect(() => {
-    const apiUrl = 'http://127.0.0.1:5000/api/food_provinces';
+    const apiUrl = 'http://127.0.0.1:5000/api/cafe_information';
 
     axios.get(apiUrl)
       .then(response => {
-        setAllImages(response.data);
+        setAllImagesCafe(response.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, []);
 
-  const handleImageClick = (selectedImage) => {
-    // Use navigate to redirect to the detail page when an image is clicked
-    navigate(`/data`, { state: { selectedImage } });
-  };
-
-  const handleToHome = () => {
-    navigate('/')
-  }
-
   return (
     <div className="flex flex-wrap">
-      {allImages.map((image, index) => (
+      {allImagesCafe.map((image, index) => (
         <div key={image.id}
-        onClick={() => handleImageClick(image)} 
         className="w-[500px] border p-5 mt-5 ml-5 mr-5 
         bg-gray-200 rounded-lg cursor-pointer hover:bg-blue-200">
           <img
             className="w-[500px] h-[300px] object-cover"
             src={image.image}
-            alt={`banner-${index}`}
+            alt=''
           />
           <p className='text-xl mt-5 text-center'>
             {image.name}
@@ -46,7 +34,7 @@ function Allinfo() {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
-export default Allinfo;
+export default CafeAllinfo

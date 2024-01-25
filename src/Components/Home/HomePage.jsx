@@ -1,30 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase_config';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import axios from 'axios';
 import BodyPage from './BodyPage';
+import CafePage from './CafePage';
 
 function HomePage() {
   const [imageBanner, setImageBanner] = useState([]);
-  const imagesCollectionRef = collection(db, 'Banner');
-  const texts = ['ទេសភាពភ្នំ', 'កន្លែងដើរលេង', 'ទឹកជ្រោះ']; // Add more texts if needed
+  const texts = ['ទេសភាពភ្នំ', 'កន្លែងដើរលេង', 'ទឹកជ្រោះ', 'ភោជនីដ្ខាន', 'សណ្ខារគារ', 'ហាងកាហ្វេ'];
 
   useEffect(() => {
-    const getImages = async () => {
-      try {
-        const data = await getDocs(imagesCollectionRef);
-        setImageBanner(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    };
+    const apiUrl = 'http://127.0.0.1:5000/api/banner_provinces';
 
-    getImages();
-  }, [imagesCollectionRef]);
+    axios.get(apiUrl)
+      .then(response => {
+        setImageBanner(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
-  // Slick carousel settings
   const settings = {
     dots: true,
     infinite: true,
@@ -45,15 +42,15 @@ function HomePage() {
   return (
     <div>
       <Slider {...settings}>
-        {imageBanner.map((image, index) => (
-          <div key={image.id} className="relative group">
+        {imageBanner.map((province, index) => (
+          <div key={province.id} className="relative group z-30">
             <img
-              className='w-[1800px] object-cover h-[400px] mt-3 pl-5 pr-5'
-              src={image.img}
+              className='w-[1800px] object-cover h-[500px] mt-3 pl-5 pr-5 shadow-lg'
+              src={province.image}
               alt={`banner-${index}`}
             />
             <div className="absolute inset-0 flex items-center justify-center 
-            opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
+              opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
               <div className="text-white text-center font-abc">
                 <p className="text-6xl font-semibold cursor-pointer">{texts[index]}</p>
               </div>
@@ -61,7 +58,8 @@ function HomePage() {
           </div>
         ))}
       </Slider>
-      <BodyPage />
+      <BodyPage/>
+      <CafePage />
     </div>
   );
 }
