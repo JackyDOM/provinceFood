@@ -8,6 +8,7 @@ import Datainfo from "./Components/Home/Datainfo";
 import Information from "./Components/Home/Information";
 import CafePage from "./Components/Home/CafePage";
 import CafeAllinfo from "./Components/Home/CafeAllinfo";
+import CafeDatainfor from "./Components/Home/CafeDatainfor";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/info" element={<Information />}/>
         <Route path='/cafe' element={<CafePage />}/>
         <Route path="/cafeAllinfo" element={<CafeAllinfo />}/>
+        <Route path="/cafeData" element={<CafeDatainfor />}/>
       </Routes>
     </Router>
   );

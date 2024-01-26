@@ -8,7 +8,10 @@ module.exports = {
       fontFamily: {
         // 'konkhmer-sleokchher': ['Konkhmer Sleokchher', 'sans-serif'],
         abc: ['Konkhmer Sleokchher', "system-ui"],
-        dbc: ['Noto Sans Khmer', 'sans-serif']
+        dbc: ['Noto Sans Khmer', 'sans-serif'],
+        hid: ['Gowun Dodum', 'sans-serif'],
+        koi: ['Merriweather', 'serif'],
+        kil: ['Roboto Slab', 'serif']
       },
     },
   },
