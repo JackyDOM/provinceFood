@@ -12,6 +12,7 @@ import CafeDatainfor from "./Components/Home/CafeDatainfor";
 import HotelPage from "./Components/Home/HotelPage";
 import HotelAllinfo from "./Components/Home/HotelAllinfo";
 import HotelDatainfo from "./Components/Home/HotelDatainfo";
+import FooterPage from "./footer/FooterPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/hotelAllinfo" element={<HotelAllinfo />}/>
         <Route path="/hotelData" element={<HotelDatainfo />}/>
       </Routes>
+      <FooterPage />
     </Router>
   );
 }
