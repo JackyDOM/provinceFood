@@ -9,6 +9,9 @@ import Information from "./Components/Home/Information";
 import CafePage from "./Components/Home/CafePage";
 import CafeAllinfo from "./Components/Home/CafeAllinfo";
 import CafeDatainfor from "./Components/Home/CafeDatainfor";
+import HotelPage from "./Components/Home/HotelPage";
+import HotelAllinfo from "./Components/Home/HotelAllinfo";
+import HotelDatainfo from "./Components/Home/HotelDatainfo";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Route path='/cafe' element={<CafePage />}/>
         <Route path="/cafeAllinfo" element={<CafeAllinfo />}/>
         <Route path="/cafeData" element={<CafeDatainfor />}/>
+        <Route path="/hotelPage" element={<HotelPage />}/>
+        <Route path="/hotelAllinfo" element={<HotelAllinfo />}/>
+        <Route path="/hotelData" element={<HotelDatainfo />}/>
       </Routes>
     </Router>
   );

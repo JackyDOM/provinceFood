@@ -1,20 +1,20 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function CafeDatainfor() {
+function HotelDatainfo() {
+
   const location = useLocation();
-  const { selectedImageCafe } = location.state;
+  const { selectedImageHotel } = location.state;
   const navigate = useNavigate();
 
   const handleToHome = () => {
     navigate('/');
   }
 
-  
   return (
     <div>
       {/* Display details */}
-      {selectedImageCafe && selectedImageCafe.detail && selectedImageCafe.detail.length > 0 && (
+      {selectedImageHotel && selectedImageHotel.detail && selectedImageHotel.detail.length > 0 && (
         <div>
           <button
             onClick={handleToHome}
@@ -25,14 +25,14 @@ function CafeDatainfor() {
             BACK
           </button>
           <ul>
-            {selectedImageCafe.detail.map((item, index) => (
+            {selectedImageHotel.detail.map((item, index) => (
               <div
                 className='items-center ml-5 border p-5 mt-5 w-[1600px] 
                 bg-gray-200 rounded-lg' 
                 key={index}
               >
                 <img 
-                  src={item.images}
+                  src={item.image}
                   className="w-[400px] h-[300px] mt-6 mx-auto object-cover cursor-pointer"
                   alt={`Cafe Image ${index}`}
                 />
@@ -48,7 +48,7 @@ function CafeDatainfor() {
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default CafeDatainfor;
+export default HotelDatainfo

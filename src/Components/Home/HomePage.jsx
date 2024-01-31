@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import axios from 'axios';
 import BodyPage from './BodyPage';
 import CafePage from './CafePage';
+import HotelPage from './HotelPage';
 
 function HomePage() {
   const [imageBanner, setImageBanner] = useState([]);
@@ -60,6 +61,7 @@ function HomePage() {
       </Slider>
       <BodyPage/>
       <CafePage />
+      <HotelPage />
     </div>
   );
 }
