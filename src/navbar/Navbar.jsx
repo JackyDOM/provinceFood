@@ -1,33 +1,25 @@
 // Navbar.js
 
 import React, { useState } from 'react';
-import logo  from './../asset/map.jpg';
-import { RiSearchLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
+import SearchResultList from './SearchResultList';
 
 const Navbar = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [result, setResult] = useState("");
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  
   return (
-    <nav className="bg-gray-800 sticky top-0 p-4 flex items-center justify-between z-50">
-      <div className="flex items-center">
-        <img 
-          src={logo} 
-          alt="" 
-          className="h-8 w-8 mr-5 rounded-lg" />
-        <div className="relative">
-        <input
-          type="text"
-          placeholder="Search for province"
-          className="bg-gray-700 text-white p-2 rounded-lg pl-10 lg:w-64 xl:w-96"
-        />
-          <RiSearchLine className="absolute top-3 left-4 text-gray-500" />
-        </div>
+    <nav className="bg-gray-800 sticky top-0 p-4 flex items-center justify-between z-50 ">
+       <div className="relative">
+        <SearchBar setResult={setResult}/>
+        <SearchResultList result={result}/>
       </div>
       {/* Responsive Menu Icon */}
       <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>

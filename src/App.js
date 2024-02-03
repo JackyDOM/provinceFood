@@ -13,6 +13,7 @@ import HotelPage from "./Components/Home/HotelPage";
 import HotelAllinfo from "./Components/Home/HotelAllinfo";
 import HotelDatainfo from "./Components/Home/HotelDatainfo";
 import FooterPage from "./footer/FooterPage";
+import SearchBar from "./navbar/SearchBar";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/hotelPage" element={<HotelPage />}/>
         <Route path="/hotelAllinfo" element={<HotelAllinfo />}/>
         <Route path="/hotelData" element={<HotelDatainfo />}/>
+        <Route path="/searchBar" element={<SearchBar />}/>
       </Routes>
       <FooterPage />
     </Router>
