@@ -7,7 +7,7 @@ function Information() {
   const { selectedImage } = location.state;
 
   return (
-    <div>
+    <div className='mb-20'>
       {selectedImage && selectedImage.information && selectedImage.information.length > 0 && (
         <ul>
           {selectedImage.information.map((item, index) => (

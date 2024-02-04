@@ -27,7 +27,7 @@ function CafeAllinfo() {
   };
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mb-20">
       {allImagesCafe.map((image, index) => (
         <div key={image.id}
         onClick={() => handleImageClick(image)} 

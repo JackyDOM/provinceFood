@@ -12,7 +12,7 @@ function CafeDatainfor() {
 
   
   return (
-    <div>
+    <div className='mb-20'>
       {/* Display details */}
       {selectedItem && selectedItem.detail && selectedItem.detail.length > 0 && (
         <div>

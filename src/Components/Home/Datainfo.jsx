@@ -18,7 +18,7 @@ function Datainfo() {
   }
 
   return (
-    <div>
+    <div className='mb-20'>
       {/* Display details */}
       {selectedItem.detail && selectedItem.detail.length > 0 && (
         <div>

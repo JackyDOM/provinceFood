@@ -29,7 +29,7 @@ function Allinfo() {
   }
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mb-20">
       {allImages.map((image, index) => (
         <div key={image.id}
         onClick={() => handleImageClick(image)} 
