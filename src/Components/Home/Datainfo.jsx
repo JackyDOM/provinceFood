@@ -1,10 +1,11 @@
 // Datainfo.jsx
+
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function Datainfo() {
   const location = useLocation();
-  const { selectedImage } = location.state;
+  const selectedItem = location.state.selectedImageFood;
   const navigate = useNavigate();
 
   const handleImageClick = (selectedImage) => {
@@ -19,7 +20,7 @@ function Datainfo() {
   return (
     <div>
       {/* Display details */}
-      {selectedImage.detail && selectedImage.detail.length > 0 && (
+      {selectedItem.detail && selectedItem.detail.length > 0 && (
         <div>
           <button
             onClick={handleToHome}
@@ -30,7 +31,7 @@ function Datainfo() {
             BACK
           </button>
           <ul>
-            {selectedImage.detail.map((item, index) => (
+            {selectedItem.detail.map((item, index) => (
               <div
               className='flex items-center ml-5 border p-5 mt-5 w-[1600px] 
               bg-gray-200 rounded-lg' 

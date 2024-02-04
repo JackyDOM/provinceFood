@@ -18,9 +18,9 @@ function BodyPage() {
       });
   }, []);
 
-  const handleImageClick = (selectedImage) => {
+  const handleImageClick = (selectedImageFood) => {
     // Use navigate to redirect to the detail page when an image is clicked
-    navigate(`/data`, { state: { selectedImage } });
+    navigate(`/data`, { state: { selectedImageFood } });
   };
 
   return (

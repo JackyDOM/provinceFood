@@ -1,10 +1,16 @@
-// SearchBar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './../asset/map.jpg';
 import { RiSearchLine } from 'react-icons/ri';
+import { useLocation } from 'react-router-dom';
 
 function SearchBar({ setResult }) {
   const [input, setInput] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    // Reset input when the location changes
+    setInput("");
+  }, [location.pathname]);
 
   const fetchData = (value) => {
     const apiEndpoints = [
@@ -47,7 +53,8 @@ function SearchBar({ setResult }) {
           type="text"
           placeholder="Search for province"
           className="bg-gray-700 text-white p-2 rounded-lg pl-10 lg:w-64 xl:w-96"
-          value={input} onChange={(e) => handleChange(e.target.value)}
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
         />
         <RiSearchLine className="absolute top-3 left-4 text-gray-500" />
       </div>

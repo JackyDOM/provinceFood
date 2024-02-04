@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 function CafeDatainfor() {
   const location = useLocation();
-  const { selectedImageCafe } = location.state;
+  const selectedItem = location.state.selectedImageCafe;
   const navigate = useNavigate();
 
   const handleToHome = () => {
@@ -14,7 +14,7 @@ function CafeDatainfor() {
   return (
     <div>
       {/* Display details */}
-      {selectedImageCafe && selectedImageCafe.detail && selectedImageCafe.detail.length > 0 && (
+      {selectedItem && selectedItem.detail && selectedItem.detail.length > 0 && (
         <div>
           <button
             onClick={handleToHome}
@@ -25,7 +25,7 @@ function CafeDatainfor() {
             BACK
           </button>
           <ul>
-            {selectedImageCafe.detail.map((item, index) => (
+            {selectedItem.detail.map((item, index) => (
               <div
                 className='items-center ml-5 border p-5 mt-5 w-[1600px] 
                 bg-gray-200 rounded-lg' 
